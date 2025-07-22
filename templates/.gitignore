@@ -1,19 +1,9 @@
-# Python cache
-__pycache__/
-*.py[cod]
-
-# Virtual environments
-env/
-venv/
-
-# Data and model files
 *.sav
 *.pkl
-*.h5
-*.csv
-*.xlsx
-
-# Log files and system files
-*.log
-.DS_Store
-Thumbs.db
+*.jpg
+*.png
+*.zip
+__pycache__/
+*.pyc
+*.ipynb_checkpoints/
+.env
