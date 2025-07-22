@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parkinson's Diagnosis</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: antiquewhite;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 30px;
+    }
+
+    .messages h2 {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .success {
+      background-color: #2ecc71;
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .warning {
+      background-color: #e74c3c;
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 900px;
+      width: 100%;
+    }
+
+    fieldset {
+      border: none;
+      margin-bottom: 25px;
+    }
+
+    legend {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: white;
+      color: black;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    @media screen and (max-width: 768px) {
+      form {
+        padding: 20px;
+      }
+
+      input[type="text"] {
+        font-size: 0.95rem;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Parkinson's Diagnosis</h1>
+
+  <div class="messages">
+    <h2>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <p class="{{ category }}">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </h2>
+  </div>
+
+  <div class="container">
+    <form action="/parkinsons" method="post">
+
+      <!-- MDVP Features -->
+      <fieldset>
+        <legend>MDVP Features</legend>
+
+        <label for="fo">Fo (Hz):</label>
+        <input type="text" id="fo" name="fo" required>
+
+        <label for="fhi">Fhi (Hz):</label>
+        <input type="text" id="fhi" name="fhi" required>
+
+        <label for="flo">Flo (Hz):</label>
+        <input type="text" id="flo" name="flo" required>
+
+        <label for="jitter_percent">Jitter (%):</label>
+        <input type="text" id="jitter_percent" name="jitter_percent" required>
+
+        <label for="jitter_abs">Jitter (Abs):</label>
+        <input type="text" id="jitter_abs" name="jitter_abs" required>
+
+        <label for="rap">RAP:</label>
+        <input type="text" id="rap" name="rap" required>
+
+        <label for="ppq">PPQ:</label>
+        <input type="text" id="ppq" name="ppq" required>
+
+        <label for="apq">APQ:</label>
+        <input type="text" id="apq" name="apq" required>
+      </fieldset>
+
+      <!-- Shimmer & Jitter -->
+      <fieldset>
+        <legend>Jitter & Shimmer</legend>
+
+        <label for="ddp">DDP:</label>
+        <input type="text" id="ddp" name="ddp" required>
+
+        <label for="shimmer">Shimmer:</label>
+        <input type="text" id="shimmer" name="shimmer" required>
+
+        <label for="shimmer_db">Shimmer (dB):</label>
+        <input type="text" id="shimmer_db" name="shimmer_db" required>
+
+        <label for="apq3">APQ3:</label>
+        <input type="text" id="apq3" name="apq3" required>
+
+        <label for="apq5">APQ5:</label>
+        <input type="text" id="apq5" name="apq5" required>
+
+        <label for="dda">DDA:</label>
+        <input type="text" id="dda" name="dda" required>
+      </fieldset>
+
+      <!-- Other Features -->
+      <fieldset>
+        <legend>Other Features</legend>
+
+        <label for="nhr">NHR:</label>
+        <input type="text" id="nhr" name="nhr" required>
+
+        <label for="hnr">HNR:</label>
+        <input type="text" id="hnr" name="hnr" required>
+
+        <label for="rpde">RPDE:</label>
+        <input type="text" id="rpde" name="rpde" required>
+
+        <label for="dfa">DFA:</label>
+        <input type="text" id="dfa" name="dfa" required>
+
+        <label for="spread1">Spread1:</label>
+        <input type="text" id="spread1" name="spread1" required>
+
+        <label for="spread2">Spread2:</label>
+        <input type="text" id="spread2" name="spread2" required>
+
+        <label for="d2">D2:</label>
+        <input type="text" id="d2" name="d2" required>
+
+        <label for="ppe">PPE:</label>
+        <input type="text" id="ppe" name="ppe" required>
+      </fieldset>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>

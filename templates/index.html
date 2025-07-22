@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get Your Diagnosis</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #faebd7;
+    }
+
+    .nav {
+      background-color: #87ceeb;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .container {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .block {
+      background-color: #fff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .block:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .block-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .block-info h1 {
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .block-info p {
+      font-size: 1rem;
+      text-align: justify;
+      color: #555;
+    }
+
+    .block-link {
+      margin-top: 1rem;
+    }
+
+    .cta {
+      border: none;
+      background: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #000;
+      transition: color 0.3s ease;
+    }
+
+    .cta:hover {
+      color: #007acc;
+    }
+
+    .hover-underline-animation {
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .hover-underline-animation:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #007acc;
+      transform-origin: bottom right;
+      transition: transform 0.3s ease-out;
+    }
+
+    .cta:hover .hover-underline-animation:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .cta svg {
+      margin-left: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .cta:hover svg {
+      transform: translateX(5px);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">Multiple Disease Prediction</header>
+
+  <main class="container">
+
+    <!-- Heart Disease Block -->
+    <section class="block">
+      <div class="block-info">
+        <h1>Heart Disease</h1>
+        <p>CAD happens when coronary arteries struggle to supply the heart with enough blood, oxygen and nutrients. Cholesterol deposits, or plaques, narrow your arteries, decreasing blood flow to your heart, causing chest pain, shortness of breath or heart attack.</p>
+        <div class="block-link">
+          <a href="/heart_page">
+            <button class="cta">
+              <span class="hover-underline-animation">Prediction</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16">
+                <path d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+              </svg>
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diabetes Block -->
+    <section class="block">
+      <div class="block-info">
+        <h1>Diabetes</h1>
+        <p>Diabetes is a chronic disease that occurs when the pancreas does not produce enough insulin or when the body cannot effectively use the insulin it produces. Insulin regulates blood glucose. If left untreated, it leads to serious complications.</p>
+        <div class="block-link">
+          <a href="/diabetes_page">
+            <button class="cta">
+              <span class="hover-underline-animation">Prediction</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16">
+                <path d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+              </svg>
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parkinson's Disease Block -->
+    <section class="block">
+      <div class="block-info">
+        <h1>Parkinson's Disease</h1>
+        <p>Parkinson's disease is a progressive nervous system disorder that affects movement. It starts with a tremor in one hand and develops into stiffness, slow movement, and impaired balance. Early intervention can help manage symptoms.</p>
+        <div class="block-link">
+          <a href="/parkinsons_page">
+            <button class="cta">
+              <span class="hover-underline-animation">Prediction</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16">
+                <path d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+              </svg>
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
