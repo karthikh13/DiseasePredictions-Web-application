@@ -1,7 +1,3 @@
-services:
-  - type: web
-    name: disease-predictions
-    env: python
-    buildCommand: ""
-    startCommand: gunicorn app:app
-    runtime: python
+build:
+  environment:
+    POETRY_VERSION: ""  # disable poetry
