@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: disease-predictions
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    runtime: python
