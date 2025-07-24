@@ -1,3 +1,7 @@
-build:
-  environment:
-    POETRY_VERSION: ""  # disable poetry
+services:
+  - type: web
+    name: disease-predictor
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    runtime: python3
